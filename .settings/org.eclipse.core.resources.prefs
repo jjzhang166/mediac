@@ -1,2 +1,3 @@
 eclipse.preferences.version=1
-encoding/config.ini=GBK
+encoding//resources/resources.rc=GBK
+encoding/DrawRate.cpp=UTF-8

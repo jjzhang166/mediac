@@ -13,9 +13,8 @@
 #include "ApplicationUtil.h"
 
 DrawRate::DrawRate(string title) :
-		Window(title) {
-
-	desfile = Config::InstallPath + "tempdes.ini";
+		Window(title), interval(300000) {
+	desfile = Config::GetInstallPath() + "tempdes.ini";
 }
 
 DrawRate::~DrawRate() {
@@ -44,23 +43,23 @@ void DrawRate::OnPaint(HDC hDC) {
 	BitBlt(hDC, 0, 0, bm.bmWidth, bm.bmHeight, hMemDC, 0, 0, SRCCOPY);
 	SelectObject(hMemDC, hOldBitmap);
 	COLORREF crOld = SetTextColor(hDC, RGB(255,0,0));
-	hFont = CreateFont(30, 0, //楂樺害20, 瀹藉彇0琛ㄧず鐢辩郴缁熼�鎷╂渶浣冲�
-			0, 0, //鏂囨湰鍊炬枩锛屼笌瀛椾綋鍊炬枩閮戒负0
-			FW_HEAVY, //绮椾綋
-			0, 0, 0, //闈炴枩浣擄紝鏃犱笅鍒掔嚎锛屾棤涓垝绾�
-			GB2312_CHARSET, //瀛楃闆�
-			OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, //涓�郴鍒楃殑榛樿鍊�
-			DEFAULT_PITCH | FF_DONTCARE, "瀹嬩綋" //瀛椾綋鍚嶇О
+	hFont = CreateFont(30, 0,
+			0, 0,
+			FW_HEAVY,
+			0, 0, 0,
+			GB2312_CHARSET,
+			OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY,
+			DEFAULT_PITCH | FF_DONTCARE, "仿宋"
 			);
 
 	SelectObject(hDC, hFont);
 	SetBkMode(hDC, TRANSPARENT);
 	if (section == "app") {
 		vector<string> time = Util::Split(Util::CurrentDate(), ';');
-		TextOut(hDC, 685, 498, (time.at(0)).c_str(), 4); //年
-		TextOut(hDC, 710, 543, (time.at(1)).c_str(), 2); //月
-		TextOut(hDC, 710, 588, (time.at(2)).c_str(), 2); //日
-		TextOut(hDC, 758, 638, (Config::TheDayOfWeek(time.at(3))).c_str(), 2); //星期
+		TextOut(hDC, 685, 498, (time.at(0)).c_str(), 4);
+		TextOut(hDC, 710, 543, (time.at(1)).c_str(), 2);
+		TextOut(hDC, 710, 588, (time.at(2)).c_str(), 2);
+		TextOut(hDC, 758, 638, (Config::TheDayOfWeek(time.at(3))).c_str(), 2);
 
 	}
 	DrawComplete(section.c_str(), hDC);
@@ -83,7 +82,7 @@ void DrawRate::DrawComplete(string lpAppName, HDC hdc) {
 			desfile.c_str());
 
 	while (Count < func_rtn) {
-		memset(work, 0, sizeof(work));/*work鍒濇湡鍖*/
+		memset(work, 0, sizeof(work));
 		memcpy(work, &StrBuf[Count], strlen(&StrBuf[Count]));
 		Count += (strlen(&StrBuf[Count]) + 1);/**/
 		vector<string> temp = Util::Split(work, '=');
@@ -91,7 +90,7 @@ void DrawRate::DrawComplete(string lpAppName, HDC hdc) {
 		string rate = MediaApplication::rateInfo->Get(nametype);
 		int desx = this->GetRateDesXY(lpAppName, nametype, 0);
 		int desy = this->GetRateDesXY(lpAppName, nametype, 1);
-		TextOut(hdc, desx, desy, rate.c_str(), strlen(rate.c_str())); //瀛椾綋杈撳嚭
+		TextOut(hdc, desx, desy, rate.c_str(), strlen(rate.c_str()));
 	}
 
 }
@@ -104,7 +103,7 @@ int DrawRate::GetRateDesXY(string lpAppName, string nametype, int x) {
 }
 
 void DrawRate::DrawPartRate(string bmpname, string part, int interval) {
-	string bmpfile = Config::InstallPath + bmpname;
+	string bmpfile = Config::GetInstallPath() + bmpname;
 	this->SetBmpFile(bmpfile);
 	this->SetSection(part);
 	this->Refresh();

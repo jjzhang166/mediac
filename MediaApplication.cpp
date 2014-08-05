@@ -182,7 +182,7 @@ void MediaApplication::Main(int argc, char* argv[]) {
 	MediaApplication app;
 	app.SetArguments(argc, argv);
 	app.SetName(APP_NAME);
-	app.SetPath(APP_HOME);
+	app.SetPath(Config::GetInstallPath());
 	app.Run();
 }
 

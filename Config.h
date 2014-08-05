@@ -5,13 +5,14 @@ using namespace std;
 
 class Config {
 private:
-	static string FileName;
 
 public:
 	Config(void);
 	~Config(void);
 
-	static string InstallPath;
+	static string GetConfigFile();
+
+	static string GetInstallPath();
 
 	static string GetHost();
 

@@ -41,7 +41,7 @@ string ApplicationUtil::GetValue(string files, char chr, int n) {
 }
 
 string ApplicationUtil::SystemUUID() {
-	string uuidFile = Config::InstallPath + "uuid.txt";
+	string uuidFile = Config::GetInstallPath() + "uuid.txt";
 	return Util::ReadFile(uuidFile, 40);
 }
 
@@ -73,6 +73,8 @@ void ApplicationUtil::PlayPhoto(string filePath, unsigned int age) {
 bool ApplicationUtil::CreateRootDir() {
 	Util::EnsureDir(Config::GetRootDir());
 	Util::EnsureDir(Config::GetFileDir());
+	Util::EnsureDir(Config::GetDownTmpFile());
+	Util::EnsureDir(Config::GetTempDir());
 	return true;
 }
 

@@ -15,7 +15,7 @@
 #include "thread/FileDownloader.h"
 #include "task/CommonTask.h"
 
-RunTask::RunTask(string tid) {
+RunTask::RunTask(string tid) : running(false) {
 	this->tid = tid;
 }
 
@@ -75,11 +75,11 @@ void RunTask::Run() {
 }
 
 void RunTask::UpdateProgram() {
-	Util::WriteFile(Config::InstallPath + "version.txt", Util::CreateGUID());
+	Util::WriteFile(Config::GetInstallPath() + "version.txt", Util::CreateGUID());
 }
 
 void RunTask::ScreenSave() {
-	string file = Config::InstallPath + "screensave.bmp";
+	string file = Config::GetInstallPath() + "screensave.bmp";
 	Util::SaveScreen(file);
 	HttpClient c(Config::GetHost(), Config::GetPort(), Config::GetUrl());
 	c.SetFile(file);
@@ -167,9 +167,9 @@ void RunTask::Stop() {
 }
 
 void RunTask::ExecuteCommand(const string& taskId) {
-	string file = Config::InstallPath + "command.txt";
-	Util::ExecuteCommand(taskId, Config::InstallPath,
-			Config::InstallPath + "command.txt");
+	string file = Config::GetInstallPath() + "command.txt";
+	Util::ExecuteCommand(taskId, Config::GetInstallPath(),
+			Config::GetInstallPath() + "command.txt");
 	HttpClient c(Config::GetHost(), Config::GetPort(), Config::GetUrl());
 	c.SetFile(file);
 	c.SetId(ApplicationUtil::SystemUUID());
