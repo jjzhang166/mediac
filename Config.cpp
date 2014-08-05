@@ -2,8 +2,9 @@
 #include <cpputils/Util.h>
 #include <stdio.h>
 #include <windows.h>
+#include "def.h"
 
-string Config::InstallPath = "C:\\Program Files\\bank\\";
+string Config::InstallPath = APP_HOME;
 string Config::FileName = Config::InstallPath + "config.ini";
 
 Config::Config(void) {
@@ -13,11 +14,11 @@ Config::~Config(void) {
 }
 
 string Config::GetHost() {
-	return Util::GetIniString("bank", "host", "localhost", FileName);
+	return Util::GetIniString("bank", "host", SERVER_HOST, FileName);
 }
 
 UINT Config::GetPort() {
-	return Util::GetIniInt("bank", "port", 8080, FileName);
+	return Util::GetIniInt("bank", "port", SERVER_PORT, FileName);
 }
 
 UINT Config::GetUpdateInterval() {
@@ -26,7 +27,7 @@ UINT Config::GetUpdateInterval() {
 
 string Config::GetUrl() {
 	return Util::GetIniString("bank", "url",
-			"/bank/cn/wizool/bank/servlet/InterfaceServlet", FileName);
+			SERVER__URL, FileName);
 }
 
 string Config::GetUuidUrl() {
@@ -41,7 +42,7 @@ string Config::GetSystemDir() {
 }
 
 string Config::GetRootDir() {
-	return Util::GetIniString("bank", "rootdir", "D:\\ROOT", FileName);
+	return Util::GetIniString("bank", "rootdir", CLIENT_ROOT, FileName);
 }
 
 string Config::GetDownloadUrl() {
@@ -56,12 +57,12 @@ string Config::GetDownloadFileUrl() {
 
 string Config::GetVersionUrl() {
 	return Util::GetIniString("bank", "versionurl",
-			"/bank/cn/wizool/bank/servlet/InterfaceServlet?method=active&id=",
+			SERVER_VERSION_URL,
 			FileName);
 }
 
 string Config::GetUpdateUrl() {
-	return Util::GetIniString("bank", "updateurl", "/bank/client/client.zip",
+	return Util::GetIniString("bank", "updateurl", SERVER_UPGRADE_URL,
 			FileName);
 }
 
@@ -85,7 +86,7 @@ string Config::GetProcessName(string name) {
 }
 
 string Config::GetFileDir() {
-	return Util::GetIniString("bank", "filedir", "D:\\TMP", FileName);
+	return Util::GetIniString("bank", "filedir", CLIENT_FILE, FileName);
 }
 
 string Config::GetRccExamDir() {
@@ -108,7 +109,7 @@ string Config::GetStartupDir() {
 }
 
 string Config::GetTempDir() {
-	return Util::GetIniString("bank", "tempdir", "D:\\TEMP", FileName);
+	return Util::GetIniString("bank", "tempdir", CLIENT_TEMP, FileName);
 }
 
 string Config::TheDayOfWeek(string dayofweek) {
@@ -126,6 +127,6 @@ string Config::GetDownUrl() {
 }
 
 string Config::GetDownTmpFile() {
-	return Util::GetIniString("bank", "downtmpdir", "D:\\DOWNTMP\\", FileName);
+	return Util::GetIniString("bank", "downtmpdir", CLIENT_DOWN, FileName);
 }
 

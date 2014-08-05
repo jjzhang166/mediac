@@ -17,6 +17,7 @@
 #include "RunTask.h"
 #include "ApplicationUtil.h"
 #include "StatusReport.h"
+#include "def.h"
 
 NetInformation* MediaApplication::rateInfo = NULL;
 NetInformation* MediaApplication::scrollInfo = NULL;
@@ -72,6 +73,9 @@ void* MediaApplication::StartChrome() {
 			"--kiosk " + Config::GetRegisterUrl()
 					+ ApplicationUtil::SystemUUID()); //
 	Util::ExtWindow("Google Chrome");
+
+	Logger::Default()->Info(par);
+
 	return Util::ShellExecuteNoWait(exe, par);
 }
 
@@ -104,7 +108,7 @@ bool MediaApplication::StartInitialize() {
 	RequestParameter param(Config::GetHost(), Config::GetPort(),
 			Config::GetUrl());
 
-	vector<string> v = Util::GetUUID(param, this->GetPath(), "1.1.21");
+	vector<string> v = Util::GetUUID(param, this->GetPath(), APP_VERS);
 	id = v[0];
 	type = v[1];
 	Logger::Default()->Info(
@@ -177,8 +181,8 @@ bool MediaApplication::Start() {
 void MediaApplication::Main(int argc, char* argv[]) {
 	MediaApplication app;
 	app.SetArguments(argc, argv);
-	app.SetName("mediac");
-	app.SetPath("C:\\Program Files\\bank\\");
+	app.SetName(APP_NAME);
+	app.SetPath(APP_HOME);
 	app.Run();
 }
 
