@@ -16,8 +16,8 @@ using namespace task;
 
 class SingleApplication: public Application {
 private:
-	FileManager* fileManager;
-	TaskManager* taskManager;
+	FileManager* fileManager = NULL;
+	TaskManager* taskManager = NULL;
 
 public:
 	SingleApplication();
