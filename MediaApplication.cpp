@@ -68,7 +68,7 @@ bool MediaApplication::StartCommand() {
 }
 
 void* MediaApplication::StartChrome() {
-	string exe = Config::GetExeFile("chrome");
+	string exe = Util::GetExeFile("chrome");
 	string par(
 			"--kiosk " + Config::GetRegisterUrl()
 					+ ApplicationUtil::SystemUUID()); //

@@ -38,7 +38,7 @@ public:
 
 	static string GetRegisterUrl();
 
-	static string GetExeFile(string name);
+//	static string GetExeFile(string name);
 
 	static string GetWindowTitle(string name);
 

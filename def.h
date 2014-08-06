@@ -9,8 +9,7 @@
 #define DEF_H_
 
 #define APP_NAME "mediac"
-#define APP_VERS "1.1.21"
-#define APP_HOME "C:\\Program Files\\bank\\"
+#define APP_VERS "1.2.0"
 #define SERVER_HOST "10.0.2.2"
 #define SERVER_PORT 8088
 #define SERVER__URL "/bank/cn/wizool/bank/servlet/InterfaceServlet"

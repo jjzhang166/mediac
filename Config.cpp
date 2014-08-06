@@ -74,9 +74,9 @@ string Config::GetRegisterUrl() {
 			+ Util::GetIniString("bank", "registerurl", "", GetConfigFile());
 }
 
-string Config::GetExeFile(string name) {
-	return Util::GetIniString("exefile", name, "", GetConfigFile());
-}
+//string Config::GetExeFile(string name) {
+//	return Util::GetIniString("exefile", name, "", GetConfigFile());
+//}
 
 string Config::GetWindowTitle(string name) {
 	return Util::GetIniString("windowtitle", name, "", GetConfigFile());
