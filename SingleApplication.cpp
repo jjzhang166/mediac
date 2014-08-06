@@ -14,6 +14,7 @@
 #include <cpputils/Logger.h>
 #include <cpputils/Util.h>
 
+
 SingleApplication::SingleApplication() {
 }
 
@@ -60,12 +61,22 @@ void SingleApplication::Prepare() {
 }
 
 bool SingleApplication::Start() {
+	Util::EnsureDir(Configure::Default()->GetString("downdir", "./downdir"));
+	Util::EnsureDir(Configure::Default()->GetString("filedir", "./filedir"));
+	Util::EnsureDir(Configure::Default()->GetString("taskdir", "./taskdir"));
+	Util::EnsureDir(Configure::Default()->GetString("tempdir", "./tempdir"));
 
 	this->Prepare();
-	//string strTid =
-	//		"app://open:fileId=c04d960f80e6448be29224918a5d7e35;surfix=mp4;length=130020408;";
-	//string strTid = "app://29db4095-9d68-43be-af65-e746c47a0ee6";
+#ifdef DEBUG_FILE
+	string strTid =
+	"app://open:fileId=01a83ad37f8866b06eb0e3234c12ff8f;surfix=mp4;length=130020408;";
+#else
+#ifdef DEBUG_TASK
+	string strTid = "app://9ab80a57-3320-4ce2-8c68-26a4fd917a89";
+#else
 	string strTid = this->GetArguments()[1];
+#endif
+#endif
 	string isopen = strTid.substr(strTid.find('/') + 2, 4);
 	if (isopen != "open") { //打开任务
 		string sstrTid = strTid.substr(strTid.find('/') + 2, 36);

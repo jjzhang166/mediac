@@ -1,11 +1,12 @@
 
-host=192.168.0.137
+host=10.0.2.2
 port=8088
 url=/bank/cn/wizool/bank/servlet/InterfaceServlet
 
-taskdir=D:\TASK
-filedir=D:\FILE
-tempdir=D:\DOWN
+filedir=C:\Users\zhangbo\Desktop\MEDIA_FILE
+taskdir=C:\Users\zhangbo\Desktop\MEDIA_TASK
+downdir=C:\Users\zhangbo\Desktop\MEDIA_DOWN
+tempdir=C:\Users\zhangbo\Desktop\MEDIA_TEMP
 
-message.fileNotFound=æ–‡ä»¶ä¸å­˜åœ¨
-message.applicationName=å±±ä¸œæ±‡é‡‘ä¿¡æ¯ç§‘æŠ€æœ‰é™å…¬å¸
+message.fileNotFound=ÎÄ¼ş²»´æÔÚ
+message.applicationName=É½¶«»ã½ğĞÅÏ¢¿Æ¼¼ÓĞÏŞ¹«Ë¾
