@@ -1,0 +1,11 @@
+
+host=192.168.0.137
+port=8088
+url=/bank/cn/wizool/bank/servlet/InterfaceServlet
+
+taskdir=D:\TASK
+filedir=D:\FILE
+tempdir=D:\DOWN
+
+message.fileNotFound=文件不存在
+message.applicationName=山东汇金信息科技有限公司

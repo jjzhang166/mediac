@@ -5,13 +5,21 @@
  *      Author: zhangbo
  */
 
+#ifdef APP_SINGLE
+
+#include "SingleApplication.h"
+int main(int argc, char* argv[]) {
+	SingleApplication::Main(argc, argv);
+	return (0);
+}
+
+#else
+
 #include "MediaApplication.h"
-
-#include "Config.h"
-#include <cpputils/Util.h>
-#include <cpputils/Logger.h>
-
 int main(int argc, char* argv[]) {
 	MediaApplication::Main(argc, argv);
 	return (0);
 }
+
+#endif
+
