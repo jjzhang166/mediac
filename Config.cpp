@@ -74,10 +74,6 @@ string Config::GetRegisterUrl() {
 			+ Util::GetIniString("bank", "registerurl", "", GetConfigFile());
 }
 
-//string Config::GetExeFile(string name) {
-//	return Util::GetIniString("exefile", name, "", GetConfigFile());
-//}
-
 string Config::GetWindowTitle(string name) {
 	return Util::GetIniString("windowtitle", name, "", GetConfigFile());
 }
@@ -86,8 +82,8 @@ string Config::GetProcessName(string name) {
 	return Util::GetIniString("process", name, "", GetConfigFile());
 }
 
-string Config::GetRootDir() {
-	return Util::GetIniString("bank", "rootdir", CLIENT_ROOT, GetConfigFile());
+string Config::GetTaskDir() {
+	return Util::GetIniString("bank", "taskdir", CLIENT_TASK, GetConfigFile());
 }
 
 string Config::GetFileDir() {

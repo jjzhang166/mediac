@@ -20,6 +20,6 @@
 #define CLIENT_FILE "D:\\FILE"
 #define CLIENT_TEMP "D:\\TEMP"
 #define CLIENT_DOWN "D:\\DOWN"
-#define CLIENT_ROOT "D:\\ROOT"
+#define CLIENT_TASK "D:\\TASK"
 
 #endif /* DEF_H_ */

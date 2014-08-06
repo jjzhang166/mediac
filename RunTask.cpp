@@ -96,7 +96,7 @@ void RunTask::UpdateRate() {
 
 void RunTask::ListTask() {
 	Properties properties;
-	string localfile = Config::GetRootDir();
+	string localfile = Config::GetTaskDir();
 	string tasklist = Util::FindFiles(localfile.c_str(), true);
 	properties.Put("method", "taskList");
 	properties.Put("id", ApplicationUtil::SystemUUID());
@@ -152,7 +152,7 @@ void RunTask::RemoveFile(const string& fid) {
 }
 
 void RunTask::RemoveTask(const string& taskId) {
-	string localFile = Config::GetRootDir() + "\\" + taskId;
+	string localFile = Config::GetTaskDir() + "\\" + taskId;
 	if (Util::FileExists(localFile)) {
 		Util::DeleteFolder(localFile.c_str());
 		RemoveDirectory(localFile.c_str());

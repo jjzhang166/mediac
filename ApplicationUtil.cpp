@@ -71,7 +71,7 @@ void ApplicationUtil::PlayPhoto(string filePath, unsigned int age) {
 }
 
 bool ApplicationUtil::CreateRootDir() {
-	Util::EnsureDir(Config::GetRootDir());
+	Util::EnsureDir(Config::GetTaskDir());
 	Util::EnsureDir(Config::GetFileDir());
 	Util::EnsureDir(Config::GetDownTmpFile());
 	Util::EnsureDir(Config::GetTempDir());

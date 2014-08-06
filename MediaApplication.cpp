@@ -123,7 +123,7 @@ bool MediaApplication::StartInitialize() {
 
 	taskManager = new TaskManager();
 	taskManager->SetFileManager(fileManager);
-	taskManager->SetTaskPath(Config::GetRootDir());
+	taskManager->SetTaskPath(Config::GetTaskDir());
 	taskManager->SetTempPath(Config::GetTempDir());
 	taskManager->SetInterface(ApplicationUtil::InterfaceParameter());
 

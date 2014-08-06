@@ -26,7 +26,7 @@ public:
 
 	static string GetSystemDir();
 
-	static string GetRootDir();
+	static string GetTaskDir();
 
 	static string GetFileDir();
 
@@ -37,8 +37,6 @@ public:
 	static string GetUpdateUrl();
 
 	static string GetRegisterUrl();
-
-//	static string GetExeFile(string name);
 
 	static string GetWindowTitle(string name);
 
