@@ -1,7 +1,7 @@
 
 host=10.0.2.2
 port=8088
-url=/bank/cn/wizool/bank/servlet/InterfaceServlet
+url=/medias/cn/wizool/bank/servlet/InterfaceServlet
 
 filedir=C:\Users\zhangbo\Desktop\MEDIA_FILE
 taskdir=C:\Users\zhangbo\Desktop\MEDIA_TASK

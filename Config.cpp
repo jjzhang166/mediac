@@ -37,7 +37,7 @@ string Config::GetUrl() {
 
 string Config::GetUuidUrl() {
 	return Util::GetIniString("bank", "uuidurl",
-			"/bank/cn/wizool/bank/servlet/DepartmentServlet?method=getUUIDByIp",
+			"/medias/cn/wizool/bank/servlet/DepartmentServlet?method=getUUIDByIp",
 			GetConfigFile());
 }
 
@@ -47,12 +47,12 @@ string Config::GetSystemDir() {
 }
 
 string Config::GetDownloadUrl() {
-	return Util::GetIniString("bank", "downloadurl", "/bank/taskes", GetConfigFile());
+	return Util::GetIniString("bank", "downloadurl", "/medias/taskes", GetConfigFile());
 }
 
 string Config::GetDownloadFileUrl() {
 	return Util::GetIniString("bank", "downloadfileurl",
-			"/bank/cn/wizool/bank/servlet/DocumentServlet?method=download&id=",
+			"/medias/cn/wizool/bank/servlet/DocumentServlet?method=download&id=",
 			GetConfigFile());
 }
 
@@ -127,7 +127,7 @@ string Config::TheDayOfWeek(string dayofweek) {
 
 string Config::GetDownUrl() {
 	return Util::GetIniString("bank", "downurl",
-			"/bank/cn/wizool/bank/servlet/InterfaceServlet?method=download&id=",
+			"/medias/cn/wizool/bank/servlet/InterfaceServlet?method=download&id=",
 			GetConfigFile());
 }
 
