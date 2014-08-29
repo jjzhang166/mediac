@@ -12,10 +12,10 @@
 #define APP_VERS "1.2.0"
 #define SERVER_HOST "10.0.2.2"
 #define SERVER_PORT 8088
-#define SERVER__URL "/bank/cn/wizool/bank/servlet/InterfaceServlet"
+#define SERVER__URL "/medias/cn/wizool/bank/servlet/InterfaceServlet"
 
-#define SERVER_VERSION_URL "/bank/cn/wizool/bank/servlet/InterfaceServlet?method=active&id="
-#define SERVER_UPGRADE_URL "/bank/client/client.zip"
+#define SERVER_VERSION_URL "/medias/cn/wizool/bank/servlet/InterfaceServlet?method=active&id="
+#define SERVER_UPGRADE_URL "/medias/client/client.zip"
 
 #define CLIENT_FILE "D:\\FILE"
 #define CLIENT_TEMP "D:\\TEMP"
